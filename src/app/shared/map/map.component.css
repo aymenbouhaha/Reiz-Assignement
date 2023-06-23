@@ -1,0 +1,6 @@
+.map-container {
+  height: 300px;
+}
+.ol-control button {
+  display: none;
+}

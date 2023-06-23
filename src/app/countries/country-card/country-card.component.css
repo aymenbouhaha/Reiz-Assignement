@@ -1,0 +1,49 @@
+img.flag {
+  height: 40px;
+  width: 60px;
+}
+
+.general-info{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.text{
+  display: flex;
+  width: 20%;
+}
+
+li{
+  alignment: left;
+}
+
+
+app-map{
+  width: 50%;
+}
+
+img.not-found{
+  width: 50%;
+  height: 300px;
+}
+
+strong{
+  color: red;
+}
+
+mat-list{
+  margin-left: 10%;
+}
+
+
+.country-info{
+  padding-right: 15%;
+  padding-left: 15%;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}

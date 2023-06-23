@@ -1,0 +1,24 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <div class="general-info">
+      <img class="flag" [src]="country.flag">
+      <div class="text">
+        <li>{{country.name}}</li>
+      </div>
+      <div class="text">
+        <li>{{country.region}}</li>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <div class="country-info">
+    <app-map [lat]="country.latlng[0]" [lng]="country.latlng[1]" *ngIf="country.latlng!=null"></app-map>
+    <img src="assets/images/not-found.png" *ngIf="country.latlng==null" class="not-found">
+    <mat-list>
+      <mat-list-item><strong>Capital:</strong>{{country.capital ?? "Doesn't Have"}}</mat-list-item>
+      <mat-list-item><strong>Region:</strong>{{country.region}}</mat-list-item>
+      <mat-list-item><strong>Area:</strong>{{country.area}}</mat-list-item>
+      <mat-list-item><strong>Population:</strong>{{country.population}}</mat-list-item>
+    </mat-list>
+  </div>
+
+</mat-expansion-panel>

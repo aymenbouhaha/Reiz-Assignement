@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="filter">
+    <mat-accordion>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Region
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="radio-group"
+          (change)="filterByRegion($event)">
+          <mat-radio-button class="radio-button" *ngFor="let nameCrieteria of nameCriterias" [value]="nameCrieteria">
+            {{nameCrieteria}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Area
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="radio-group"
+          (change)="filterByArea($event)">
+          <mat-radio-button class="radio-button" *ngFor="let areaCriteria of areaCriterias" [value]="areaCriteria">
+            {{areaCriteria}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Sort
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="radio-group"
+          (change)="sort($event)">
+          <mat-radio-button class="radio-button" *ngFor="let crieteria of sortCriterias" [value]="crieteria">
+            {{crieteria}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="spinner"*ngIf="isLoading">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>
+  <div class="content" *ngIf="!isLoading">
+    <mat-paginator [length]="pagesNumber ?? 1"
+                   [pageSize]="15"
+                   [pageIndex]="pageIndex"
+                   (page)="navigateByPage($event)"
+    >
+    </mat-paginator>
+    <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
+  </div >
+</div>
+
